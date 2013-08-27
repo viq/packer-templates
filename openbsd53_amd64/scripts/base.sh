@@ -1,15 +1,12 @@
-# set pkg path for users
+# set system pkg path
 echo " "
-echo " Setting PKG_PATH for users "
-echo " "
-echo " export PKG_PATH=http://ftp.eu.openbsd.org/pub/OpenBSD/`uname -r`/packages/`arch -s`/ " >> /root/.profile
-echo " export PKG_PATH=http://ftp.eu.openbsd.org/pub/OpenBSD/`uname -r`/packages/`arch -s`/ ">> /home/vagrant/.profile
+echo "Setting system PKG_PATH"
+echo "installpath = http://ftp.eu.openbsd.org/pub/OpenBSD/$(uname -r)/packages/$(arch -s)" > /etc/pkg.conf
 
 # install wget/curl/bash/vim and its dependencies
 echo " "
 echo " Installing needed packages "
 echo " "
-export PKG_PATH=http://ftp.eu.openbsd.org/pub/OpenBSD/`uname -r`/packages/`arch -s`/
 pkg_add wget curl bash vim-7.3.154p2-no_x11 rsync-3.0.9p2 bzip2 ngrep
 
 # giving root & vagrant bash as shell
@@ -29,6 +26,15 @@ echo "# Uncomment to allow people in group wheel to run all commands without a p
 echo "%wheel        ALL=(ALL) NOPASSWD: SETENV: ALL" >> /etc/sudoers
 
 /etc/rc.d/sendmail stop
+
+# install M:Tier cert for verification of packages
+ftp -o /etc/ssl/pkgca.pem https://stable.mtier.org/mtier.cert
+# install system updates from https://stable.mtier.org/updates?release=53
+PKG_PATH=https://stable.mtier.org/updates/$(uname -r)/$(arch -s) pkg_add \
+	binpatch53-$(arch -s)-bgpd-1.0.tgz \
+	binpatch53-$(arch -s)-nginx-1.0.tgz \
+	binpatch53-$(arch -s)-tftpd-1.0.tgz \
+	binpatch53-$(arch -s)-kernel-4.0.tgz
 
 # install the ports system for who wants to use it
 echo " "

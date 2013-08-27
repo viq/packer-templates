@@ -41,7 +41,7 @@
         "vagrant<enter><wait>",
         "vagrant<enter><wait>",
         "no<enter><wait>",
-        "GB<enter><wait>",
+        "UTC<enter><wait>",
         "<enter><wait>",
         "<enter><wait>",
         "W<enter><wait>",
@@ -57,8 +57,6 @@
         "done<enter><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>",
         "yes<enter><wait><wait>",
-        "<wait><wait><wait><wait><wait><wait><wait>",
-        "UTC<enter><wait><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>",
         "reboot<enter><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>"
