@@ -56,6 +56,8 @@
         "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
         "done<enter><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>",
+        "yes<enter><wait><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>",
         "UTC<enter><wait><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>",
         "reboot<enter><wait>",
