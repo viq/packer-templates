@@ -1,0 +1,156 @@
+{
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/vagrant.sh"
+      ]
+    }
+  ],
+  "builders": [
+    {
+      "type": "virtualbox",
+      "name": "vbox-obsd-amd64",
+      "boot_command": [
+        "I<enter><wait>",
+        "us<enter><wait>",
+        "OpenBSD-current-amd64<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait>",
+        "none<enter><wait>",
+        "done<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "yes<enter><wait>",
+        "no<enter><wait>",
+        "yes<enter><wait>",
+        "no<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "no<enter><wait>",
+        "UTC<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "W<enter><wait>",
+        "A<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
+        "cd<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "all<enter><wait>",
+        "done<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
+        "done<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>",
+        "UTC<enter><wait><wait>",
+        "yes<enter><wait><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>",
+        "reboot<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>"
+      ],
+      "boot_wait": "40s",
+      "disk_size": 40960,
+      "guest_os_type": "OpenBSD_64",
+      "iso_checksum": "48a6629c84c028ff4d7d99eb3c4932ac3f7c7c812c06b040442f62a1ac5ca782",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/amd64/install54.iso",
+      "ssh_username": "root",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s",
+      "shutdown_command": "echo '/sbin/halt -p' > shutdown.sh; sh 'shutdown.sh'",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "virtualbox_version_file": ".vbox_version",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "256"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ]
+    },
+    {
+      "type": "virtualbox",
+      "name": "vbox-obsd-i386",
+      "boot_command": [
+        "I<enter><wait>",
+        "us<enter><wait>",
+        "OpenBSD-current-i386<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait>",
+        "none<enter><wait>",
+        "done<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "yes<enter><wait>",
+        "no<enter><wait>",
+        "yes<enter><wait>",
+        "no<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "no<enter><wait>",
+        "UTC<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "W<enter><wait>",
+        "A<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
+        "cd<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "all<enter><wait>",
+        "done<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
+        "done<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>",
+        "UTC<enter><wait><wait>",
+        "yes<enter><wait><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>",
+        "reboot<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>"
+      ],
+      "boot_wait": "40s",
+      "disk_size": 40960,
+      "guest_os_type": "OpenBSD",
+      "iso_checksum": "79474c008d66e7940acf51e76a9e5b77ea31df1c81867f4487149a4e91c86dcd",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/i386/install54.iso",
+      "ssh_username": "root",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_wait_timeout": "10000s",
+      "shutdown_command": "echo '/sbin/halt -p' > shutdown.sh; sh 'shutdown.sh'",
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "virtualbox_version_file": ".vbox_version",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "256"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "post-processors": ["vagrant"]
+}

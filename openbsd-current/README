@@ -1,0 +1,3 @@
+Run update_template.sh to pull in checksums for most recent snapshots.
+If editing work on the tmpl file as template will get overwritten by the
+script.
