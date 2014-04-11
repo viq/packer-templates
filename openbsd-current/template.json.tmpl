@@ -1,17 +1,6 @@
 {
-  "provisioners": [
-    {
-      "type": "shell",
-      "scripts": [
-        "scripts/base.sh",
-        "scripts/vagrant.sh"
-      ]
-    }
-  ],
   "builders": [
     {
-      "type": "virtualbox",
-      "name": "vbox-obsd-amd64",
       "boot_command": [
         "I<enter><wait>",
         "us<enter><wait>",
@@ -43,28 +32,31 @@
         "<enter><wait>",
         "all<enter><wait>",
         "done<enter><wait>",
+        "yes<enter><wait>",
         "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
         "done<enter><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>",
         "UTC<enter><wait><wait>",
         "yes<enter><wait><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>",
+        "echo MACs hmac-sha1,hmac-sha1-96 >> /mnt/etc/ssh/sshd_config<enter><wait>",
         "reboot<enter><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>"
       ],
       "boot_wait": "40s",
       "disk_size": 40960,
+      "guest_additions_mode": "disable",
       "guest_os_type": "OpenBSD_64",
       "iso_checksum": "CKSUM64",
       "iso_checksum_type": "sha256",
-      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/amd64/install54.iso",
-      "ssh_username": "root",
+      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/amd64/install55.iso",
+      "name": "vbox-obsd-amd64",
+      "shutdown_command": "echo '/sbin/halt -p' > shutdown.sh; sh 'shutdown.sh'",
       "ssh_password": "vagrant",
       "ssh_port": 22,
+      "ssh_username": "root",
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo '/sbin/halt -p' > shutdown.sh; sh 'shutdown.sh'",
-      "guest_additions_mode": "disable",
-      "virtualbox_version_file": ".vbox_version",
+      "type": "virtualbox-iso",
       "vboxmanage": [
         [
           "modifyvm",
@@ -78,11 +70,10 @@
           "--cpus",
           "1"
         ]
-      ]
+      ],
+      "virtualbox_version_file": ".vbox_version"
     },
     {
-      "type": "virtualbox",
-      "name": "vbox-obsd-i386",
       "boot_command": [
         "I<enter><wait>",
         "us<enter><wait>",
@@ -114,28 +105,31 @@
         "<enter><wait>",
         "all<enter><wait>",
         "done<enter><wait>",
+        "yes<enter><wait>",
         "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
         "done<enter><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>",
         "UTC<enter><wait><wait>",
         "yes<enter><wait><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>",
+        "echo MACs hmac-sha1,hmac-sha1-96 >> /mnt/etc/ssh/sshd_config<enter><wait>",
         "reboot<enter><wait>",
         "<wait><wait><wait><wait><wait><wait><wait>"
       ],
       "boot_wait": "40s",
       "disk_size": 40960,
+      "guest_additions_mode": "disable",
       "guest_os_type": "OpenBSD",
       "iso_checksum": "CKSUM32",
       "iso_checksum_type": "sha256",
-      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/i386/install54.iso",
-      "ssh_username": "root",
+      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/i386/install55.iso",
+      "name": "vbox-obsd-i386",
+      "shutdown_command": "echo '/sbin/halt -p' > shutdown.sh; sh 'shutdown.sh'",
       "ssh_password": "vagrant",
       "ssh_port": 22,
+      "ssh_username": "root",
       "ssh_wait_timeout": "10000s",
-      "shutdown_command": "echo '/sbin/halt -p' > shutdown.sh; sh 'shutdown.sh'",
-      "guest_additions_mode": "disable",
-      "virtualbox_version_file": ".vbox_version",
+      "type": "virtualbox-iso",
       "vboxmanage": [
         [
           "modifyvm",
@@ -149,8 +143,21 @@
           "--cpus",
           "1"
         ]
-      ]
+      ],
+      "virtualbox_version_file": ".vbox_version"
     }
   ],
-  "post-processors": ["vagrant"]
+  "post-processors": [
+    "vagrant"
+  ],
+  "provisioners": [
+    {
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/vagrant.sh"
+      ],
+      "type": "shell"
+    }
+  ]
 }
+
