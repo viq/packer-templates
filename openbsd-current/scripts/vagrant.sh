@@ -22,6 +22,6 @@ mkdir /home/vagrant/.ssh
 chmod 700 /home/vagrant/.ssh
 chown vagrant.vagrant /home/vagrant/.ssh
 touch /home/vagrant/.ssh/authorized_keys
-curl -sL http://github.com/mitchellh/vagrant/raw/master/keys/vagrant.pub > /home/vagrant/.ssh/authorized_keys
+ftp -o /home/vagrant/.ssh/authorized_keys https://raw.githubusercontent.com/mitchellh/vagrant/master/keys/vagrant.pub
 chmod 600 /home/vagrant/.ssh/authorized_keys
 chown vagrant.vagrant /home/vagrant/.ssh/authorized_keys

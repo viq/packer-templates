@@ -32,7 +32,7 @@ echo " "
 echo " Installing the ports system ! "
 echo " "
 cd /tmp
-wget http://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/ports.tar.gz
+ftp http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/ports.tar.gz
 cd /usr
 mkdir ports
 chown vagrant:vagrant ports
