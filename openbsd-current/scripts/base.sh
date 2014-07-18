@@ -38,6 +38,6 @@ mkdir ports
 chown vagrant:vagrant ports
 sudo -u vagrant tar xzf /tmp/ports.tar.gz
 cd /usr/ports
-cvschroot anoncvs@anoncvs.spacehopper.org:/cvs
+#cvschroot anoncvs@anoncvs.spacehopper.org:/cvs
 echo "SUDO=sudo -E" >> /etc/mk.conf
 echo 'PORTSDIR_PATH=${PORTSDIR}:$(PORTSDIR)/openbsd-wip:${PORTSDIR}/mystuff' >> /etc/mk.conf
