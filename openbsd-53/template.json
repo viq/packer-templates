@@ -1,0 +1,163 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "I<enter><wait>",
+        "us<enter><wait>",
+        "OpenBSD-53-amd64<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait>",
+        "none<enter><wait>",
+        "done<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "yes<enter><wait>",
+        "no<enter><wait>",
+        "yes<enter><wait>",
+        "no<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "no<enter><wait>",
+        "UTC<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "W<enter><wait>",
+        "A<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
+        "cd<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "all<enter><wait>",
+        "done<enter><wait>",
+        "yes<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
+        "done<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>",
+        "UTC<enter><wait><wait>",
+        "yes<enter><wait><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>",
+        "echo MACs hmac-sha1,hmac-sha1-96 >> /mnt/etc/ssh/sshd_config<enter><wait>",
+        "reboot<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>"
+      ],
+      "boot_wait": "40s",
+      "disk_size": 40960,
+      "guest_additions_mode": "disable",
+      "guest_os_type": "OpenBSD_64",
+      "iso_checksum": "9d7ab830b70b4b39a8949a3ded8c83f1866cc34312b3f62c6098b45679a95856",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/5.3/amd64/install53.iso",
+      "name": "vbox-obsd-53-amd64",
+      "shutdown_command": "echo '/sbin/halt -p' > shutdown.sh; sh 'shutdown.sh'",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_username": "root",
+      "ssh_wait_timeout": "10000s",
+      "type": "virtualbox-iso",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "256"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ],
+      "virtualbox_version_file": ".vbox_version"
+    },
+    {
+      "boot_command": [
+        "I<enter><wait>",
+        "us<enter><wait>",
+        "OpenBSD-53-i386<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait>",
+        "none<enter><wait>",
+        "done<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "yes<enter><wait>",
+        "no<enter><wait>",
+        "yes<enter><wait>",
+        "no<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "vagrant<enter><wait>",
+        "no<enter><wait>",
+        "UTC<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "W<enter><wait>",
+        "A<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
+        "cd<enter><wait>",
+        "<enter><wait>",
+        "<enter><wait>",
+        "all<enter><wait>",
+        "done<enter><wait>",
+        "yes<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait><wait>",
+        "done<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>",
+        "UTC<enter><wait><wait>",
+        "yes<enter><wait><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>",
+        "echo MACs hmac-sha1,hmac-sha1-96 >> /mnt/etc/ssh/sshd_config<enter><wait>",
+        "reboot<enter><wait>",
+        "<wait><wait><wait><wait><wait><wait><wait>"
+      ],
+      "boot_wait": "40s",
+      "disk_size": 40960,
+      "guest_additions_mode": "disable",
+      "guest_os_type": "OpenBSD",
+      "iso_checksum": "1d4e6f83a79e08262621882650d77d3bcc6512e693724213effe737e8fe9314a",
+      "iso_checksum_type": "sha256",
+      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/5.3/i386/install53.iso",
+      "name": "vbox-obsd-53-i386",
+      "shutdown_command": "echo '/sbin/halt -p' > shutdown.sh; sh 'shutdown.sh'",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_username": "root",
+      "ssh_wait_timeout": "10000s",
+      "type": "virtualbox-iso",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "256"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ],
+      "virtualbox_version_file": ".vbox_version"
+    }
+  ],
+  "post-processors": [
+    "vagrant"
+  ],
+  "provisioners": [
+    {
+      "scripts": [
+        "scripts/base.sh",
+        "scripts/vagrant.sh"
+      ],
+      "type": "shell"
+    }
+  ]
+}
+
