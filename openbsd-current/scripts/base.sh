@@ -1,7 +1,7 @@
 # set system pkg path
 echo " "
 echo "Setting system PKG_PATH"
-echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf
+echo "installpath = http://ftp5.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf
 
 # install wget/curl/bash/vim and its dependencies
 echo " "
@@ -25,19 +25,5 @@ echo " "
 echo "# Uncomment to allow people in group wheel to run all commands without a password" >> /etc/sudoers
 echo "%wheel        ALL=(ALL) NOPASSWD: SETENV: ALL" >> /etc/sudoers
 
-/etc/rc.d/sendmail stop
-
-# install the ports system for who wants to use it
-echo " "
-echo " Installing the ports system ! "
-echo " "
-cd /tmp
-ftp http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/ports.tar.gz
-cd /usr
-mkdir ports
-chown vagrant:vagrant ports
-sudo -u vagrant tar xzf /tmp/ports.tar.gz
-cd /usr/ports
-#cvschroot anoncvs@anoncvs.spacehopper.org:/cvs
 echo "SUDO=sudo -E" >> /etc/mk.conf
 echo 'PORTSDIR_PATH=${PORTSDIR}:$(PORTSDIR)/openbsd-wip:${PORTSDIR}/mystuff' >> /etc/mk.conf
