@@ -1,7 +1,7 @@
 # set system pkg path
 echo " "
 echo "Setting system PKG_PATH"
-echo "installpath = http://ftp5.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf
+echo "installpath = http://ftp5.eu.openbsd.org/ftp/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf
 
 # install wget/curl/bash/vim and its dependencies
 echo " "
