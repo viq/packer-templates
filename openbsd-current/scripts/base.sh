@@ -1,5 +1,6 @@
 # set system pkg path
 echo " "
+#cat /etc/ssh/sshd_config
 echo "Setting system PKG_PATH"
 sudo sh -c 'echo "installpath = http://ftp5.eu.openbsd.org/ftp/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf'
 #echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf
@@ -26,5 +27,5 @@ sudo pkg_add wget curl bash vim--no_x11 rsync-- bzip2 ngrep cvsutils git
 #echo "# Uncomment to allow people in group wheel to run all commands without a password" >> /etc/sudoers
 #sudo sh -c 'echo "%wheel        ALL=(ALL) NOPASSWD: SETENV: ALL" >> /etc/sudoers'
 
-sudo sh -c 'echo "SUDO=sudo -E" >> /etc/mk.conf'
-sudo sh -c "echo 'PORTSDIR_PATH=${PORTSDIR}:$(PORTSDIR)/openbsd-wip:${PORTSDIR}/mystuff' >> /etc/mk.conf"
+#sudo sh -c 'echo "SUDO=sudo -E" >> /etc/mk.conf'
+#sudo sh -c "echo 'PORTSDIR_PATH=${PORTSDIR}:$(PORTSDIR)/openbsd-wip:${PORTSDIR}/mystuff' >> /etc/mk.conf"
