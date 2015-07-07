@@ -1,2 +1,3 @@
 #!/bin/sh
-pkg_add sudo
+chown root:wheel /etc/sudoers /etc/mk.conf
+PKG_PATH=http://ftp5.eu.openbsd.org/ftp/pub/OpenBSD/snapshots/packages/amd64/ pkg_add sudo
