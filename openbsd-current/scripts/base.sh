@@ -29,3 +29,8 @@ doas pkg_add wget curl bash vim--no_x11 rsync-- bzip2 ngrep cvsutils git sudo--
 
 #sudo sh -c 'echo "SUDO=sudo -E" >> /etc/mk.conf'
 #sudo sh -c "echo 'PORTSDIR_PATH=${PORTSDIR}:$(PORTSDIR)/openbsd-wip:${PORTSDIR}/mystuff' >> /etc/mk.conf"
+
+# enable NFS services
+for service in lockd mountd portmap statd ; do
+    doas rcctl enable $service
+done
