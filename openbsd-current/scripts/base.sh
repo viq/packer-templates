@@ -2,14 +2,15 @@
 echo " "
 #cat /etc/ssh/sshd_config
 echo "Setting system PKG_PATH"
-doas sh -c 'echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf'
+doas -n sh -c 'echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf'
+#doas sh -c 'echo "installpath = http://ftp5.eu.openbsd.org/ftp/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf'
 #echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf
 
 # install wget/curl/bash/vim and its dependencies
 echo " "
 echo " Installing needed packages "
 echo " "
-doas pkg_add wget curl bash vim--no_x11 rsync-- bzip2 ngrep cvsutils git sudo--
+doas -n pkg_add wget curl bash vim--no_x11 rsync-- bzip2 ngrep cvsutils git sudo--
 
 # giving root & vagrant bash as shell
 #echo " "
@@ -32,5 +33,5 @@ doas pkg_add wget curl bash vim--no_x11 rsync-- bzip2 ngrep cvsutils git sudo--
 
 # enable NFS services
 for service in lockd mountd portmap statd ; do
-    doas rcctl enable $service
+    doas -n rcctl enable $service
 done
