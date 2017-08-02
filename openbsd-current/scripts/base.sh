@@ -2,7 +2,8 @@
 echo " "
 #cat /etc/ssh/sshd_config
 echo "Setting system PKG_PATH"
-doas -n sh -c 'echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf'
+#doas -n sh -c 'echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf'
+doas -n sh -c 'echo "https://ftp.eu.openbsd.org/pub/OpenBSD" > /etc/installurl'
 #doas sh -c 'echo "installpath = http://ftp5.eu.openbsd.org/ftp/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf'
 #echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf
 
@@ -18,6 +19,10 @@ doas -n pkg_add wget curl bash vim--no_x11 rsync-- bzip2 ngrep cvsutils git sudo
 #echo " "
 #usermod -s /usr/local/bin/bash vagrant
 #usermod -s /usr/local/bin/bash root
+
+# Add vagrant to wobj group
+echo -e "\n Adding vagrant to wobj group "
+doas usermod -G wobj vagrant
 
 # sudo
 # Defaults requiretty is not present in the sudoers file
