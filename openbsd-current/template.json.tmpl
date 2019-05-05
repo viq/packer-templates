@@ -9,11 +9,9 @@
       ],
       "boot_wait": "25s",
       "disk_size": 10240,
-      "guest_additions_mode": "disable",
-      "guest_os_type": "OpenBSD_64",
       "iso_checksum": "CKSUM64",
       "iso_checksum_type": "sha256",
-      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/amd64/install61.iso",
+      "iso_url": "https://ftp.halifax.rwth-aachen.de/pub/OpenBSD/snapshots/amd64/install65.iso",
       "name": "amd64",
       "http_directory": "http",
       "http_port_min": "8954",
@@ -23,22 +21,10 @@
       "ssh_port": 22,
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
-      "type": "virtualbox-iso",
-      "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "256"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "1"
-        ]
-      ],
-      "virtualbox_version_file": ".vbox_version"
+      "type": "qemu",
+      "format": "qcow2",
+      "accelerator": "kvm",
+      "disk_interface": "virtio"
     },
     {
       "boot_command": [
@@ -49,11 +35,9 @@
       ],
       "boot_wait": "25s",
       "disk_size": 10240,
-      "guest_additions_mode": "disable",
-      "guest_os_type": "OpenBSD",
       "iso_checksum": "CKSUM32",
       "iso_checksum_type": "sha256",
-      "iso_url": "http://ftp.eu.openbsd.org/pub/OpenBSD/snapshots/i386/install61.iso",
+      "iso_url": "https://ftp.halifax.rwth-aachen.de/pub/OpenBSD/snapshots/i386/install65.iso",
       "name": "i386",
       "http_directory": "http",
       "http_port_min": "8956",
@@ -63,22 +47,10 @@
       "ssh_port": 22,
       "ssh_username": "vagrant",
       "ssh_wait_timeout": "10000s",
-      "type": "virtualbox-iso",
-      "vboxmanage": [
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--memory",
-          "256"
-        ],
-        [
-          "modifyvm",
-          "{{.Name}}",
-          "--cpus",
-          "1"
-        ]
-      ],
-      "virtualbox_version_file": ".vbox_version"
+      "type": "qemu",
+      "format": "qcow2",
+      "accelerator": "kvm",
+      "disk_interface": "virtio"
     }
   ],
   "post-processors": [

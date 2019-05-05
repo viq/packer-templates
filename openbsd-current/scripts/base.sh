@@ -3,7 +3,8 @@ echo " "
 #cat /etc/ssh/sshd_config
 echo "Setting system PKG_PATH"
 #doas -n sh -c 'echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf'
-doas -n sh -c 'echo "https://ftp.eu.openbsd.org/pub/OpenBSD" > /etc/installurl'
+#doas -n sh -c 'echo "https://ftp.eu.openbsd.org/pub/OpenBSD" > /etc/installurl'
+doas -n sh -c 'echo "https://ftp.halifax.rwth-aachen.de/pub/OpenBSD" > /etc/installurl'
 #doas sh -c 'echo "installpath = http://ftp5.eu.openbsd.org/ftp/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf'
 #echo "installpath = http://ftp2.eu.openbsd.org/pub/OpenBSD/snapshots/packages/$(arch -s)" > /etc/pkg.conf
 
@@ -11,7 +12,7 @@ doas -n sh -c 'echo "https://ftp.eu.openbsd.org/pub/OpenBSD" > /etc/installurl'
 echo " "
 echo " Installing needed packages "
 echo " "
-doas -n pkg_add wget curl bash vim--no_x11 rsync-- bzip2 ngrep cvsutils git sudo--
+doas -n pkg_add -D snap wget curl bash vim--no_x11 rsync-- bzip2 ngrep cvsutils git sudo--
 
 # giving root & vagrant bash as shell
 #echo " "
